@@ -1,8 +1,10 @@
-###  DATE: 
+###  DATE: 15-3-2024
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: Samyuktha S
+
+###  ROLL NO : 212222240089
+
+###  DEPARTMENT: AIML
 
 
 # EXPERIMENT NO 05 INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
@@ -45,21 +47,16 @@ An external controller (such as the Arduino) tells the servo where to go with a 
 
 ### Figure-03 SERVO MOTOR OVERVIEW 
 
- 
-
-
- 
-
-
-
-
-
-CIRCUIT DIAGRAM
- 
- 
  ![image](https://user-images.githubusercontent.com/36288975/163544618-6eb8a7b5-7f1a-428a-8d9f-fd899b145efb.png)
 
-### FIGURE 04 CIRCUIT DIAGRAM
+### FIGURE 04 CIRCUIT DIAGRAM:
+
+![robot2](https://github.com/SamyukthaSreenivasan/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/119475703/2e9e0c6a-d290-43c9-9d0f-7899f36d46b4)
+
+## SCHEMATIC REPRESENTATION:
+
+![robot3](https://github.com/SamyukthaSreenivasan/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/119475703/fa76aada-5193-4b34-b388-f5af729b24f8)
+
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -74,15 +71,37 @@ CIRCUIT DIAGRAM
 
 
 ### PROGRAM :
+```
+#include <Servo.h>
+Servo s;
+int pos=0;
+void setup()
+{
+ s.attach(9);
+ Serial.begin(9600);
+}
+
+void loop()
+{
+ for(pos=0;pos<=180;pos+=1)
+ {
+   s.write(pos);
+   delay(20);
+   //Serial.print("Angle=");
+   Serial.println(pos);
+ }
+ for(pos=180;pos>=0;pos-=1)
+ {
+   s.write(pos);
+   delay(20);
+   //Serial.print("Angle=");
+   Serial.println(pos);
+ }
  
-
-
-
-
-
-
-
-
+}
+```
+## OUTPUT:
+![robot1](https://github.com/SamyukthaSreenivasan/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/119475703/16cad748-2273-4288-a378-9001785d3a6c)
 
 ### RESULTS: 
 Arduino uno interfacing with servo motor is learned and angular position is controlled using PWM signal.
